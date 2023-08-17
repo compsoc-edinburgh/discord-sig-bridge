@@ -16,6 +16,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Set up .secrets from Repo secrets
+        run: |
+          mkdir -p .secrets
+          echo "${{ secrets.DISCORD_TOKEN }}" > .secrets/token.txt
+
       - name: Build image
         run: |
           source .env
