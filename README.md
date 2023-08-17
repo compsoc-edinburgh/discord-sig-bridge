@@ -8,9 +8,11 @@ The server/channel configuration is in the `matterbridge.toml` file.
 
 The bot token is not stored in this repository, please acquire it through other means.
 
-## Changing Bot token / First Local Setup
+## Basic Modification
 
 All edits to the matterbridge TOML config except for the Token/secrets modification, can be done via commits and push -- the CI will take care of redeployment as long as there is an existing Docker container on the remote (i.e. someone ran `make restart` once upon a time)
+
+## Changing Bot token / First Local Setup
 
 1. Clone the repository
 2. (Make sure that there is at least one past GitHub action run -- we need at least one Docker image created.)
