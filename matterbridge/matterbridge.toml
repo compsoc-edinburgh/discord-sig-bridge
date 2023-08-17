@@ -3,15 +3,15 @@ name="SIGINT Gateway"
 enable=true
 
 [[gateway.inout]]
-account="discord.compsoc_sigint_channel"
+account="discord.compsoc"
 channel="ID:316038111811600387" # bottest
 
 [[gateway.inout]]
-account="discord.sigint_general_channel"
+account="discord.sigint"
 channel="ID:480720731638857770" # bottest2
 
 [discord]
-[discord.compsoc_sigint_channel]
+[discord.compsoc]
 
 # You can get your token by following the instructions on
 # https://github.com/42wim/matterbridge/wiki/Discord-bot-setup
@@ -29,7 +29,7 @@ AllowMention=[]
 # Show a preview of other bot's embeds by copying the title and description
 ShowEmbeds=true
 
-[discord.sigint_general_channel]
+[discord.sigint]
 
 Server="315277951597936640" # CompSoc Edinburgh
 # Automatically manage webhooks for Discord channels

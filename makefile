@@ -27,7 +27,7 @@ initialise: generate-port
 		--label "traefik.enable=true" \
 		-p ${PORT}:${PORT} \
 		-e PORT=${PORT} \
-		-v /secrets/service-${SERVICE_NAME}:/secrets \
+		--env-file /secrets/service-${SERVICE_NAME}/.env \
 		-e "FILE_UPLOAD=https://service-simple-storage:3456/${SERVICE_NAME}" \
 		--label "com.centurylinklabs.watchtower.enable=true" \
 		ghcr.io/compsoc-edinburgh/service-${SERVICE_NAME}'
