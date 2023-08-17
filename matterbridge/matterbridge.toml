@@ -1,5 +1,5 @@
 [[gateway]]
-name="SIGINT Gateway"
+name="one Gateway"
 enable=true
 
 [[gateway.inout]]
@@ -21,7 +21,7 @@ channel="ID:480720731638857770" # bottest2
 Server="315277951597936640" # CompSoc Edinburgh
 # Automatically manage webhooks for Discord channels
 AutoWebhooks=true
-RemoteNickFormat="[{PROTOCOL}] <{NICK}> "
+RemoteNickFormat="{NICK} ({BRIDGE})"
 # Map threads from other bridges on discord replies
 PreserveThreading=true
 # Allow no mentions, since it can be source of spam. Default is all.
@@ -34,7 +34,7 @@ ShowEmbeds=true
 Server="315277951597936640" # CompSoc Edinburgh
 # Automatically manage webhooks for Discord channels
 AutoWebhooks=true
-RemoteNickFormat="[{PROTOCOL}] <{NICK}> "
+RemoteNickFormat="{NICK} ({GATEWAY})"
 # Map threads from other bridges on discord replies
 PreserveThreading=true
 # Allow no mentions, since it can be source of spam. Default is all.
