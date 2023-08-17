@@ -1,5 +1,5 @@
 [[gateway]]
-name="one Gateway"
+name="SIGINT Bridge Gateway"
 enable=true
 
 [[gateway.inout]]
@@ -19,9 +19,9 @@ channel="ID:480720731638857770" # bottest2
 # If you want roles/groups mentions to be shown with names instead of ID, 
 # you'll need to give your bot the "Manage Roles" permission.
 Server="315277951597936640" # CompSoc Edinburgh
-# Automatically manage webhooks for Discord channels
-AutoWebhooks=true
-RemoteNickFormat="{NICK} ({BRIDGE})"
+# Disable threading, as Webhooks can't reply to threads and it looks off
+PreserveThreading=false
+RemoteNickFormat="{NICK}"
 # Map threads from other bridges on discord replies
 PreserveThreading=true
 # Allow no mentions, since it can be source of spam. Default is all.
@@ -34,9 +34,9 @@ ShowEmbeds=true
 Server="315277951597936640" # CompSoc Edinburgh
 # Automatically manage webhooks for Discord channels
 AutoWebhooks=true
-RemoteNickFormat="{NICK} ({GATEWAY})"
-# Map threads from other bridges on discord replies
-PreserveThreading=true
+RemoteNickFormat="{NICK}"
+# Disable threading, as Webhooks can't reply to threads and it looks off
+PreserveThreading=false
 # Allow no mentions, since it can be source of spam. Default is all.
 AllowMention=[]
 # Show a preview of other bot's embeds by copying the title and description
