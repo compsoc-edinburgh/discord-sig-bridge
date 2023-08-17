@@ -4,40 +4,60 @@ enable=true
 
 [[gateway.inout]]
 account="discord.compsoc"
-channel="ID:316038111811600387" # bottest
+channel="ID:359905927643791360" # sigint
 
 [[gateway.inout]]
 account="discord.sigint"
-channel="ID:480720731638857770" # bottest2
+channel="ID:754018502058180664" # general
+
+[[gateway]]
+name="GameDevSIG Bridge Gateway"
+enable=true
+
+[[gateway.inout]]
+account="discord.compsoc"
+channel="ID:730146239315837052" # gamedevsig
+
+[[gateway.inout]]
+account="discord.gamedevsig"
+channel="ID:1018832521519173642" # general
 
 [discord]
 [discord.compsoc]
 
-# You can get your token by following the instructions on
-# https://github.com/42wim/matterbridge/wiki/Discord-bot-setup
-# in particular that the "Members Intent" checkbox is important.
-# If you want roles/groups mentions to be shown with names instead of ID, 
-# you'll need to give your bot the "Manage Roles" permission.
 Server="315277951597936640" # CompSoc Edinburgh
+RemoteNickFormat="{NICK}"
 # Disable threading, as Webhooks can't reply to threads and it looks off
 PreserveThreading=false
-RemoteNickFormat="{NICK}"
-# Map threads from other bridges on discord replies
-PreserveThreading=true
 # Allow no mentions, since it can be source of spam. Default is all.
 AllowMention=[]
+# Automatically manage webhooks for Discord channels
+AutoWebhooks=true
 # Show a preview of other bot's embeds by copying the title and description
 ShowEmbeds=true
 
 [discord.sigint]
 
-Server="315277951597936640" # CompSoc Edinburgh
-# Automatically manage webhooks for Discord channels
-AutoWebhooks=true
+Server="754018502058180659" # SIGINT Edinburgh
 RemoteNickFormat="{NICK}"
 # Disable threading, as Webhooks can't reply to threads and it looks off
 PreserveThreading=false
 # Allow no mentions, since it can be source of spam. Default is all.
 AllowMention=[]
+# Automatically manage webhooks for Discord channels
+AutoWebhooks=true
+# Show a preview of other bot's embeds by copying the title and description
+ShowEmbeds=true
+
+[discord.gamedevsig]
+
+Server="1010126395403419648" # GameDevSIG
+RemoteNickFormat="{NICK}"
+# Disable threading, as Webhooks can't reply to threads and it looks off
+PreserveThreading=false
+# Allow no mentions, since it can be source of spam. Default is all.
+AllowMention=[]
+# Automatically manage webhooks for Discord channels
+AutoWebhooks=true
 # Show a preview of other bot's embeds by copying the title and description
 ShowEmbeds=true
