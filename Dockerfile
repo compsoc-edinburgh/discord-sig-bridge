@@ -1,13 +1,6 @@
-FROM node:15.0.1-alpine
+FROM 42wim/matterbridge:stable
 
-WORKDIR /app
+COPY .secrets ./
 
-COPY package*.json ./
-
-RUN npm install
-
-COPY . .
-
-EXPOSE ${PORT}
-
-CMD [ "npm", "run", "start" ]
+RUN export MATTERBRIDGE_DISCORD_COMPSOC_SIGINT_CHANNEL_TOKEN="$(cat .secrets/token.txt)"
+COPY matterbridge /etc/matterbridge
