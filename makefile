@@ -20,6 +20,7 @@ sync-secrets:
 initialise:
 	mkdir -p .secrets
 	ssh ${REMOTE} "mkdir -p /secrets/service-${SERVICE_NAME}"
+	rsync -r ${REMOTE}:/secrets/service-${SERVICE_NAME}/ ./.secrets/
 
 # Start the Docker container on the remote. This is needed to refresh secret .env files after a sync-secrets -- for this reason, it's recommended to use the restart target instead, which covers it.
 start:
