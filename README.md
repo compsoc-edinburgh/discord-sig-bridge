@@ -16,13 +16,14 @@ All edits to the matterbridge TOML config except for the Token/secrets modificat
 
 1. Clone the repository
 2. (Make sure that there is at least one past GitHub action run -- we need at least one Docker image created.)
-3. Run `make initialise` to create a local `.secrets` directory.
-4. Create a `.secrets/.env` file containing the following:
+3. Run `make initialise` to create a local `.secrets` directory. Any remote secrets will be downloaded to local at this point.
+4. Create a `.secrets/.env` file if it does not exist, containing the following:
 
 ```
 MATTERBRIDGE_DISCORD_COMPSOC_TOKEN=<DISCORD BOT TOKEN>
 MATTERBRIDGE_DISCORD_SIGINT_TOKEN=<DISCORD BOT TOKEN>
 MATTERBRIDGE_DISCORD_GAMEDEVSIG_TOKEN=<DISCORD BOT TOKEN>
+...etc
 ```
 
 This file is passed as the `--env-file` argument when starting the Docker container. MatterBridge will automatically treat them as the Token fields for the TOML config dicts like: `[discord.compsoc]`
