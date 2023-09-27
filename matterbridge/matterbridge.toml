@@ -11,6 +11,18 @@ account="discord.sigint"
 channel="ID:754018502058180664" # general
 
 [[gateway]]
+name="SIGINT Announcement Bridge Gateway"
+enable=true
+
+[[gateway.out]]
+account="discord.compsoc"
+channel="ID:359905927643791360" # sigint
+
+[[gateway.in]]
+account="discord.sigint"
+channel="ID:754018502058180662" # announcements
+
+[[gateway]]
 name="GameDevSIG Bridge Gateway"
 enable=true
 
