@@ -58,6 +58,18 @@ channel="ID:1156637304211906713" # typesig
 account="discord.typesig"
 channel="ID:1157074727794380811" # general
 
+[[gateway]]
+name="TypeSig Announcement Bridge Gateway"
+enable=true
+
+[[gateway.out]]
+account="discord.compsoc"
+channel="ID:1156637304211906713" # typesig
+
+[[gateway.in]]
+account="discord.typesig"
+channel="ID:1157074584361771028" # announcements
+
 [discord]
 [discord.compsoc]
 
