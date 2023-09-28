@@ -46,6 +46,18 @@ channel="ID:1130422421015498804" # project-share
 account="discord.projectshare"
 channel="ID:1075737869915799564" # general
 
+[[gateway]]
+name="TypeSig Bridge Gateway"
+enable=true
+
+[[gateway.inout]]
+account="discord.compsoc"
+channel="ID:1156637304211906713" # typesig
+
+[[gateway.inout]]
+account="discord.typesig"
+channel="ID:1157074727794380811" # general
+
 [discord]
 [discord.compsoc]
 
@@ -89,6 +101,19 @@ ShowEmbeds=true
 [discord.projectshare]
 
 Server="1075737869446025247" # Project Share
+RemoteNickFormat="{NICK}"
+# Disable threading, as Webhooks can't reply to threads and it looks off
+PreserveThreading=false
+# Allow no mentions, since it can be source of spam. Default is all.
+AllowMention=[]
+# Automatically manage webhooks for Discord channels
+AutoWebhooks=true
+# Show a preview of other bot's embeds by copying the title and description
+ShowEmbeds=true
+
+[discord.typesig]
+
+Server="1157074271877746750" # TypeSig
 RemoteNickFormat="{NICK}"
 # Disable threading, as Webhooks can't reply to threads and it looks off
 PreserveThreading=false
