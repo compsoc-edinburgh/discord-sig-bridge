@@ -23,12 +23,15 @@ initialise:
 	rsync -r ${REMOTE}:/secrets/service-${SERVICE_NAME}/ ./.secrets/
 
 # Start the Docker container on the remote. This is needed to refresh secret .env files after a sync-secrets -- for this reason, it's recommended to use the restart target instead, which covers it.
+#
+# We open port 4242 for the Matterbridge API listener for the MatterBukkit
+# service.
 start:
 	ssh ${REMOTE} 'docker run -d --name service-${SERVICE_NAME} \
 		--network traefik-net \
 		--label "traefik.enable=true" \
 		--env-file /secrets/service-${SERVICE_NAME}/.env \
-		-e "FILE_UPLOAD=https://service-simple-storage:3456/${SERVICE_NAME}" \
+		-p 4242:4242 \
 		--label "com.centurylinklabs.watchtower.enable=true" \
 		ghcr.io/compsoc-edinburgh/service-${SERVICE_NAME}'
 

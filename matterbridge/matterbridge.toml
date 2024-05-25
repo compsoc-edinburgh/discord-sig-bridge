@@ -1,3 +1,6 @@
+# Definitions for the various gateway configurations. See lower down for
+# account configurations.
+
 [[gateway]]
 name="SIGINT Bridge Gateway"
 enable=true
@@ -70,6 +73,23 @@ channel="ID:1156637304211906713" # typesig
 account="discord.typesig"
 channel="ID:1157074584361771028" # announcements
 
+[[gateway]]
+# This 'name' field is used by the connecting Minecraft plugin to identify the gateway.
+name="Minecraft_Vanilla_Server_Bridge_Gateway"
+enable=true
+
+[[gateway.inout]]
+# As required by https://github.com/Programie/MatterBukkit
+account="api.matterbukkit"
+channel="api"
+
+[[gateway.inout]]
+account="discord.compsoc"
+channel="ID:316038111811600387" # bottest
+
+
+# Definitions for the various account configurations
+
 [discord]
 [discord.compsoc]
 
@@ -135,3 +155,11 @@ AllowMention=[]
 AutoWebhooks=true
 # Show a preview of other bot's embeds by copying the title and description
 ShowEmbeds=true
+
+# Used for the Matterbukkit Minecraft Spigot plugin to connect from.
+# Make sure the port is exposed on the Docker container.
+[api.matterbukkit]
+
+BindAddress="0.0.0.0:4242"
+Buffer=1000
+RemoteNickFormat="[{PROTOCOL}] {NICK}"
