@@ -164,4 +164,4 @@ ShowEmbeds=true
 
 BindAddress="0.0.0.0:4242"
 Buffer=1000
-RemoteNickFormat="{PROTOCOL}][{NICK}"
+RemoteNickFormat="d┅{NICK}"
