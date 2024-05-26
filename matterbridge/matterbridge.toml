@@ -156,6 +156,8 @@ AutoWebhooks=true
 # Show a preview of other bot's embeds by copying the title and description
 ShowEmbeds=true
 
+[api]
+
 # Used for the Matterbukkit Minecraft Spigot plugin to connect from.
 # Make sure the port is exposed on the Docker container.
 [api.matterbukkit]
