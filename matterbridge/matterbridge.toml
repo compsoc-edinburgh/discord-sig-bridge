@@ -85,7 +85,7 @@ channel="api"
 
 [[gateway.inout]]
 account="discord.compsoc"
-channel="ID:316038111811600387" # bottest
+channel="ID:1245849017565446254" # minecraft-ingame
 
 
 # Definitions for the various account configurations
