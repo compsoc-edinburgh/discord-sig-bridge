@@ -1,3 +1,3 @@
-FROM 42wim/matterbridge:stable
+FROM 42wim/matterbridge:latest
 
 COPY matterbridge /etc/matterbridge
