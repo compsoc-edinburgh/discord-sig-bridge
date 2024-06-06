@@ -84,7 +84,7 @@ account="api.matterbukkit"
 channel="api"
 
 [[gateway.inout]]
-account="discord.compsoc"
+account="discord.compsoc-mcavatars"
 channel="ID:1245849017565446254" # minecraft-ingame
 
 
@@ -103,6 +103,25 @@ AllowMention=[]
 AutoWebhooks=true
 # Show a preview of other bot's embeds by copying the title and description
 ShowEmbeds=true
+
+# Goal: Show minecraft avatars for MC -> Discord messages. We want to use the
+# IconURL setting, but this setting can only be applied on account level, not
+# per gateway (a bit stupid ngl, we should be able to change settings for each
+# inout gateway). So, we need to create a separate account definition that
+# has all-identical settings, except for IconURL.
+[discord.compsoc-mcavatars]
+
+Server="315277951597936640" # CompSoc Edinburgh
+RemoteNickFormat="{NICK}"
+# Disable threading, as Webhooks can't reply to threads and it looks off
+PreserveThreading=false
+# Allow no mentions, since it can be source of spam. Default is all.
+AllowMention=[]
+# Automatically manage webhooks for Discord channels
+AutoWebhooks=true
+# Show a preview of other bot's embeds by copying the title and description
+ShowEmbeds=true
+IconURL="https://mc-heads.net/avatar/{NICK}.png"
 
 [discord.sigint]
 
