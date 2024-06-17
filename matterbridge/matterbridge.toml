@@ -38,18 +38,6 @@ account="discord.gamedevsig"
 channel="ID:1018832521519173642" # general
 
 [[gateway]]
-name="Project Share Bridge Gateway"
-enable=true
-
-[[gateway.inout]]
-account="discord.compsoc"
-channel="ID:1130422421015498804" # project-share
-
-[[gateway.inout]]
-account="discord.projectshare"
-channel="ID:1075737869915799564" # general
-
-[[gateway]]
 name="TypeSig Bridge Gateway"
 enable=true
 
@@ -120,19 +108,6 @@ ShowEmbeds=true
 [discord.gamedevsig]
 
 Server="1010126395403419648" # GameDevSIG
-RemoteNickFormat="{NICK}"
-# Disable threading, as Webhooks can't reply to threads and it looks off
-PreserveThreading=false
-# Allow no mentions, since it can be source of spam. Default is all.
-AllowMention=[]
-# Automatically manage webhooks for Discord channels
-AutoWebhooks=true
-# Show a preview of other bot's embeds by copying the title and description
-ShowEmbeds=true
-
-[discord.projectshare]
-
-Server="1075737869446025247" # Project Share
 RemoteNickFormat="{NICK}"
 # Disable threading, as Webhooks can't reply to threads and it looks off
 PreserveThreading=false
