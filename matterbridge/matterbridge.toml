@@ -133,6 +133,7 @@ ShowEmbeds=true
 
 [api]
 
+
 # Used for the Matterbukkit Minecraft Spigot plugin to connect from.
 # Make sure the port is exposed on the Docker container.
 [api.matterbukkit]
