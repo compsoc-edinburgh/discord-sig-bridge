@@ -1,8 +1,8 @@
 # CompSoc <-> SIGs Discord Bridge
 
-This is a [CompSoc Service](https://github.com/compsoc-edinburgh/deployment) that runs an instance of [MatterBridge](https://github.com/42wim/matterbridge) to relay messages bidirectionally between the CompSoc central Discord server and the various SIG Discord servers.
+This is a CompSoc Service that runs an instance of [MatterBridge](https://github.com/42wim/matterbridge) to relay messages bidirectionally between the CompSoc central Discord server and the various SIG Discord servers.
 
-The service is hosted on `deployment-host`, as a Docker container. On every GitHub push, a Docker image is rebuilt and automatically triggers a re-deployment via a webhook.
+The service is hosted on the [CompSoc k8s cluster](https://github.com/compsoc-edinburgh/CompSoc-k8s/tree/master/services/discord-sig-bridge). On every GitHub push, a Docker image is rebuilt and pushes it to ghcr. 
 
 The server/channel configuration is in the `matterbridge.toml` file.
 
@@ -10,22 +10,10 @@ The bot token is not stored in this repository, please acquire it through other 
 
 ## Basic Modification
 
-All edits to the matterbridge TOML config except for the Token/secrets modification, can be done via commits and push -- the CI will take care of redeployment as long as there is an existing Docker container on the remote (i.e. someone ran `make restart` once upon a time)
+To edit the bridges behavior (i.e. don't need to change the tokens at all):
+- Make changes to `matterbridge.toml` file
+- Push to repository, which will kickoff a pipeline to build and upload to ghcr
+- Go into kubernetes and apply the deployment again with: `kubectl rollout restart deployment discord-sig-bridge`
 
-## Changing Bot token / First Local Setup
+To edit the bridges secrets you'll need to edit the secrets in kubernetes. See the [CompSoc k8s cluster repo](https://github.com/compsoc-edinburgh/CompSoc-k8s/tree/master/services/discord-sig-bridge).
 
-1. Clone the repository
-2. (Make sure that there is at least one past GitHub action run -- we need at least one Docker image created.)
-3. Run `make initialise` to create a local `.secrets` directory. Any remote secrets will be downloaded to local at this point.
-4. Create a `.secrets/.env` file if it does not exist, containing the following:
-
-```
-MATTERBRIDGE_DISCORD_COMPSOC_TOKEN=<DISCORD BOT TOKEN>
-MATTERBRIDGE_DISCORD_SIGINT_TOKEN=<DISCORD BOT TOKEN>
-MATTERBRIDGE_DISCORD_GAMEDEVSIG_TOKEN=<DISCORD BOT TOKEN>
-...etc
-```
-
-This file is passed as the `--env-file` argument when starting the Docker container. MatterBridge will automatically treat them as the Token fields for the TOML config dicts like: `[discord.compsoc]`
-
-5. Run `make restart`, which will stop the remote service if running, sync the .env file to it, and start the remote service with the secrets.
