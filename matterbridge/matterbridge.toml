@@ -61,6 +61,35 @@ channel="ID:1156637304211906713" # typesig
 account="discord.typesig"
 channel="ID:1157074584361771028" # announcements
 
+
+
+[[gateway]]
+name="BitSig Bridge Gateway"
+enable=true
+
+[[gateway.inout]]
+account="discord.compsoc"
+channel="ID:1428472587771449405" # bitsig
+
+[[gateway.inout]]
+account="discord.bitsig"
+channel="ID:1262394291653836873" # general
+
+[[gateway]]
+name="BitSig Announcement Bridge Gateway"
+enable=true
+
+[[gateway.out]]
+account="discord.compsoc"
+channel="ID:1428472587771449405" # bitsig
+
+[[gateway.in]]
+account="discord.bitsig"
+channel="ID:1266416978898190366" # announcements
+
+
+
+
 [[gateway]]
 # This 'name' field is used by the connecting Minecraft plugin to identify the gateway.
 name="Minecraft_Vanilla_Server_Bridge_Gateway"
@@ -121,6 +150,19 @@ ShowEmbeds=true
 [discord.typesig]
 
 Server="1157074271877746750" # TypeSig
+RemoteNickFormat="{NICK}"
+# Disable threading, as Webhooks can't reply to threads and it looks off
+PreserveThreading=false
+# Allow no mentions, since it can be source of spam. Default is all.
+AllowMention=[]
+# Automatically manage webhooks for Discord channels
+AutoWebhooks=true
+# Show a preview of other bot's embeds by copying the title and description
+ShowEmbeds=true
+
+[discord.bitsig]
+
+Server="1222930891609866272" # BigSig
 RemoteNickFormat="{NICK}"
 # Disable threading, as Webhooks can't reply to threads and it looks off
 PreserveThreading=false
