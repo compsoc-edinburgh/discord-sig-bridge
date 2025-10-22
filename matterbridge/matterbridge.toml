@@ -105,6 +105,21 @@ account="discord.compsoc"
 channel="ID:1245849017565446254" # minecraft-ingame
 
 
+[[gateway]]
+# This 'name' field is used by the connecting Minecraft plugin to identify the gateway.
+name="Informatics 2025 Entry Announcements Bridge"
+enable=true
+
+[[gateway.in]]
+# As required by https://github.com/Programie/MatterBukkit
+account="discord.compsoc"
+channel="ID:316088190635081728" # compsoc announcements
+
+[[gateway.out]]
+account="discord.inf2025entry"
+channel="ID:1426337639568773183" # inf2025 announcements
+
+
 # Definitions for the various account configurations
 
 [discord]
@@ -163,6 +178,20 @@ ShowEmbeds=true
 [discord.bitsig]
 
 Server="1222930891609866272" # BigSig
+RemoteNickFormat="{NICK}"
+# Disable threading, as Webhooks can't reply to threads and it looks off
+PreserveThreading=false
+# Allow no mentions, since it can be source of spam. Default is all.
+AllowMention=[]
+# Automatically manage webhooks for Discord channels
+AutoWebhooks=true
+# Show a preview of other bot's embeds by copying the title and description
+ShowEmbeds=true
+
+
+[discord.inf2025entry]
+
+Server="1425937979884699660" # Informatics First Year Server
 RemoteNickFormat="{NICK}"
 # Disable threading, as Webhooks can't reply to threads and it looks off
 PreserveThreading=false
