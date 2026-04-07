@@ -24,6 +24,7 @@ This will walk through creating a new bridge, likely for a new SIG:
 - The next step is to add the bot to the new server. Go to the discord developer portal and generate an invite link for them (on the compsoc discord account -- creds are in vaultwarden), oncce they've done this you can proceed to change the credentials.
 - Edit the `matterbridge.toml` file to add the following lines:
 ```toml
+# First you need to add a new gateway, with two "inout" entries for the two ends of the bridge.
 [[gateway]]
 name="[SIG Name] Bridge Gateway"
 enable=true
@@ -36,6 +37,11 @@ channel="ID:1428472587771449405" # <-- ID for the channel in compsoc
 account="discord.[SIG Name]"
 channel="ID:1262394291653836873" # <-- ID for their general channel
 
+# these are optional, to route their announcements to the compsoc
+# sig channel. (one-way). Matterbridge is smart enough to prevent looping
+# this back to their bridged general channel (I think - not tested kekw).
+# obviously you can do something similar with Discord's native feature
+# to follow announcement channels, or omit it entirely. 
 [[gateway]]
 name="[SIG Name] Announcement Bridge Gateway"
 enable=true
@@ -48,6 +54,7 @@ channel="ID:1428472587771449405" # <-- ID for the channel in compsoc
 account="discord.[SIG name]"
 channel="ID:1266416978898190366" # <-- ID for their announcements channel
 
+# You need to add configuration for the account (referenced in the gateway portion)
 [discord.[SIG Name]]
 
 Server="1222930891609866272" # <--- ID for their server
@@ -61,7 +68,7 @@ AutoWebhooks=true
 # Show a preview of other bot's embeds by copying the title and description
 ShowEmbeds=true
 ```
-  - Note that the easiest way to get IDs is to just look at the link when visiting through the web portal. It will be in the format `https://discord.com/channels/<server_id>/<channel_id>`
+  - Note that the easiest way to get IDs is to just look at the link when visiting through the web version of Discord. It will be in the format `https://discord.com/channels/<server_id>/<channel_id>`. Otherwise, you can also enable Developer Mode in your desktop client (under Settings > Advanced), which gives you the ability to right click any server/channel to copy its ID.
 - Then you'll need to add the Token as an environment variable, which can be done by basically setting `$MATTERBRIDGE_DISCORD_[SIG Name]_TOKEN`. If you added it from the same CompSoc Bridge bot, then it'll be the same token as the other SIGs
 - You'll also need to reload the container and make sure the secrets are updated on the kubernetes remote
 
