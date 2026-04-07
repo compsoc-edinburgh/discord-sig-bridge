@@ -106,12 +106,10 @@ channel="ID:1245849017565446254" # minecraft-ingame
 
 
 [[gateway]]
-# This 'name' field is used by the connecting Minecraft plugin to identify the gateway.
 name="Informatics 2025 Entry Announcements Bridge"
 enable=true
 
 [[gateway.in]]
-# As required by https://github.com/Programie/MatterBukkit
 account="discord.compsoc"
 channel="ID:316088190635081728" # compsoc announcements
 
