@@ -117,7 +117,7 @@ channel="ID:1426337639568773183" # inf2025 announcements
 # Things that affect all Discord configs
 # Requires at least v1.26.0-compsoc.3 fork: upstream doesn't support keys like "[general.discord]"
 [general.discord]
-QuoteFormat="-# {QUOTEMESSAGE}\n@{QUOTENICK}, {MESSAGE})"
+QuoteFormat="-# {QUOTEMESSAGE}\n{QUOTENICK}, {MESSAGE})"
 QuoteLengthLimit=50
 # Disable threading, as Webhooks can't reply to threads and it looks off
 PreserveThreading=false
