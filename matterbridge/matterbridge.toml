@@ -87,9 +87,6 @@ channel="ID:1428472587771449405" # bitsig
 account="discord.bitsig"
 channel="ID:1266416978898190366" # announcements
 
-
-
-
 [[gateway]]
 # This 'name' field is used by the connecting Minecraft plugin to identify the gateway.
 name="Minecraft_Vanilla_Server_Bridge_Gateway"
@@ -104,7 +101,6 @@ channel="api"
 account="discord.compsoc"
 channel="ID:1245849017565446254" # minecraft-ingame
 
-
 [[gateway]]
 name="Informatics 2025 Entry Announcements Bridge"
 enable=true
@@ -118,90 +114,46 @@ account="discord.inf2025entry"
 channel="ID:1426337639568773183" # inf2025 announcements
 
 
-# Definitions for the various account configurations
+# Things that affect all Discord configs
+# Requires at least v1.26.0-compsoc.3 fork: upstream doesn't support keys like "[general.discord]"
+[general.discord]
+QuoteFormat="-# {QUOTEMESSAGE}\n@{QUOTENICK}, {MESSAGE})"
+QuoteLengthLimit=50
+# Disable threading, as Webhooks can't reply to threads and it looks off
+PreserveThreading=false
+RemoteNickFormat="{NICK}"
+# Allow no mentions, since it can be source of spam. Default is all.
+AllowMention=[]
+# Show a preview of other bot's embeds by copying the title and description
+ShowEmbeds=true
+# Automatically manage webhooks for Discord channels
+AutoWebhooks=true
+
+
+# Specific accounts definitions
 
 [discord]
-[discord.compsoc]
+# Requires Manage Webhooks permission when adding to new servers
 
+[discord.compsoc]
 Server="315277951597936640" # CompSoc Edinburgh
-RemoteNickFormat="{NICK}"
-# Disable threading, as Webhooks can't reply to threads and it looks off
-PreserveThreading=false
-# Allow no mentions, since it can be source of spam. Default is all.
-AllowMention=[]
-# Automatically manage webhooks for Discord channels
-AutoWebhooks=true
-# Show a preview of other bot's embeds by copying the title and description
-ShowEmbeds=true
 
 [discord.sigint]
-
 Server="754018502058180659" # SIGINT Edinburgh
-RemoteNickFormat="{NICK}"
-# Disable threading, as Webhooks can't reply to threads and it looks off
-PreserveThreading=false
-# Allow no mentions, since it can be source of spam. Default is all.
-AllowMention=[]
-# Automatically manage webhooks for Discord channels
-AutoWebhooks=true
-# Show a preview of other bot's embeds by copying the title and description
-ShowEmbeds=true
 
 [discord.gamedevsig]
-
 Server="1010126395403419648" # GameDevSIG
-RemoteNickFormat="{NICK}"
-# Disable threading, as Webhooks can't reply to threads and it looks off
-PreserveThreading=false
-# Allow no mentions, since it can be source of spam. Default is all.
-AllowMention=[]
-# Automatically manage webhooks for Discord channels
-AutoWebhooks=true
-# Show a preview of other bot's embeds by copying the title and description
-ShowEmbeds=true
 
 [discord.typesig]
-
 Server="1157074271877746750" # TypeSig
-RemoteNickFormat="{NICK}"
-# Disable threading, as Webhooks can't reply to threads and it looks off
-PreserveThreading=false
-# Allow no mentions, since it can be source of spam. Default is all.
-AllowMention=[]
-# Automatically manage webhooks for Discord channels
-AutoWebhooks=true
-# Show a preview of other bot's embeds by copying the title and description
-ShowEmbeds=true
 
 [discord.bitsig]
-
 Server="1222930891609866272" # BigSig
-RemoteNickFormat="{NICK}"
-# Disable threading, as Webhooks can't reply to threads and it looks off
-PreserveThreading=false
-# Allow no mentions, since it can be source of spam. Default is all.
-AllowMention=[]
-# Automatically manage webhooks for Discord channels
-AutoWebhooks=true
-# Show a preview of other bot's embeds by copying the title and description
-ShowEmbeds=true
-
 
 [discord.inf2025entry]
-
 Server="1425937979884699660" # Informatics First Year Server
-RemoteNickFormat="{NICK}"
-# Disable threading, as Webhooks can't reply to threads and it looks off
-PreserveThreading=false
-# Allow no mentions, since it can be source of spam. Default is all.
-AllowMention=[]
-# Automatically manage webhooks for Discord channels
-AutoWebhooks=true
-# Show a preview of other bot's embeds by copying the title and description
-ShowEmbeds=true
 
 [api]
-
 
 # Used for the Matterbukkit Minecraft Spigot plugin to connect from.
 # Make sure the port is exposed on the Docker container.
