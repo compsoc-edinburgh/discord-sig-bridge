@@ -7,11 +7,11 @@ enable=true
 
 [[gateway.inout]]
 account="discord.compsoc"
-channel="ID:1428472587771449405" # evp
+channel="ID:1425472173711036456" # evp
 
 [[gateway.inout]]
 account="discord.evp"
-channel="ID:TODO" # general
+channel="ID:1551196103830016073" # general
 
 [[gateway]]
 name="EVP Announcement Bridge Gateway"
@@ -19,11 +19,11 @@ enable=true
 
 [[gateway.out]]
 account="discord.compsoc"
-channel="ID:1428472587771449405" # evp
+channel="ID:1425472173711036456" # evp
 
 [[gateway.in]]
 account="discord.evp"
-channel="ID:TODO" # announcements
+channel="ID:1551202773599781074" # announcements
 
 [[gateway]]
 name="SIGINT Bridge Gateway"
@@ -178,7 +178,7 @@ Server="1222930891609866272" # BigSig
 Server="1425937979884699660" # Informatics First Year Server
 
 [discord.evp]
-Server="TODO" # Edinburgh VenturePoint
+Server="1551196102378655847" # Edinburgh VenturePoint
 
 [api]
 
